@@ -5,7 +5,7 @@ import medico from '../pageObjects/medico';
 import solicitacao from '../pageObjects/solicitacao';
 import amostra from '../pageObjects/amostra';
 
-Cypress.Commands.add('criarSolicitacaoExameTSH', (dados) => {
+Cypress.Commands.add('criarSolicitacaoExameTGO', (dados) => {
   
   const datahora = new Date().toISOString();
   const timestamp = Date.now();
@@ -39,7 +39,8 @@ Cypress.Commands.add('criarSolicitacaoExameTSH', (dados) => {
   }).then((response) => {
     expect(response.status).to.eq(200);
     cy.log('Solicitação criada com sucesso!');
-    expect(response.body).to.include('informacao="Exame(s): TSH - Incluído(s) com sucesso!"');
+    expect(response.body).to.include('informacao="O exame TGO está com erro de de_para em seu cadastro. Entre em contato com seu Executivo de vendas solicitando correção do exame"');
+    cy.log(JSON.stringify(response.body));
     
   });
 });

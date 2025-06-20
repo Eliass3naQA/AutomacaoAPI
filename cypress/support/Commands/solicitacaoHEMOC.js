@@ -40,9 +40,6 @@ Cypress.Commands.add('criarSolicitacaoExameHEMOC', (dados) => {
     expect(response.status).to.eq(200);
     cy.log('Solicitação criada com sucesso!');
     expect(response.body).to.include('informacao="Exame(s): HEMOC - Incluído(s) com sucesso!"');
-    cy.log('Response status:', response.status);
-    cy.log('Response headers:', response.headers);
-    cy.log('Response body:', response.body);
     
   });
 });
